@@ -27,7 +27,7 @@
 
 Choisissez une ville, survolez-la librement, glissez-vous au ras du bitume ou regardez-la du haut des montagnes… ou **montez à bord de n'importe quel véhicule** d'un simple clic, et laissez le temps filer jusqu'à voir le jour basculer dans la nuit.
 
-Le projet est né autour de **Chambéry (73000)** et fonctionne aujourd'hui sur plusieurs villes et villages très différents (urbain dense, montagne, littoral, île…).
+Il fonctionne sur plusieurs villes et villages très différents (urbain dense, montagne, littoral, île…).
 
 <p align="center"><img src="docs/images/flythrough.gif" alt="Survol libre de la ville" width="85%"></p>
 
@@ -39,7 +39,7 @@ Le projet est né autour de **Chambéry (73000)** et fonctionne aujourd'hui sur 
 - **Relief réel** (plusieurs centaines de milliers de points de maillage) et **photo aérienne IGN** à la demande.
 - **Routes, ponts, tunnels, rivières, voies ferrées, glissières, caténaires, lampadaires, mobilier urbain, enseignes**, noms de rues, de quartiers, de sommets, numéros de rue.
 
-<p align="center"><img src="docs/images/city-details.jpg" alt="Détails de la ville" width="85%"><br><sub>Vieille ville · relief et montagnes · rue avec circulation · photo aérienne IGN (© IGN, Licence Ouverte) drapée sur le terrain</sub></p>
+<p align="center"><img src="docs/images/city-details.jpg" alt="Détails de la ville" width="85%"><br><sub>Vieille ville · relief et montagnes · rue avec circulation · photo aérienne IGN (© IGN, Licence Ouverte) mapée sur le terrain</sub></p>
 
 ### 🚦 Une circulation vivante
 - Les véhicules motorisés suivent le **vrai réseau routier** : sens uniques, ronds-points, limitations de vitesse.
@@ -60,12 +60,12 @@ Le projet est né autour de **Chambéry (73000)** et fonctionne aujourd'hui sur 
 ### 🏛️ Rendu maquette
 Un bouton **« Rendu maquette »** fait basculer la ville dans un style épuré façon **plan-masse d'architecte** : bâtiments, arbres et terrain en volumes blancs façon maquette d'architecte, sans photo aérienne, noms et repères masqués, lumière de plein jour fixe (le temps est alors figé à 12 h 30), le tout sous un effet de **flou de profondeur « tilt-shift »** qui donne à la ville des airs de maquette posée sur une table. Un second clic ramène au rendu normal en restituant l'heure et les réglages précédents.
 
-<p align="center"><img src="docs/images/maquette.jpg" alt="Rendu maquette de Chambéry" width="85%"><br><sub>Chambéry en rendu maquette.</sub></p>
+<p align="center"><img src="docs/images/maquette.jpg" alt="Rendu maquette" width="85%"><br><sub>Rendu maquette.</sub></p>
 
 ### 🌊 Apocalypse : la montée des eaux
 Un curseur **« Niveau de l'eau »** (altitude réelle, en mètres) permet de noyer la ville à la main, et le bouton **« Simuler l'Apocalypse »** lance un traveling cinématographique : le temps est figé à 14 h, la caméra tourne autour de la ville et l'eau monte jusqu'au niveau maximal. Les bâtiments, les routes et les arbres disparaissent sous la surface, et la caméra ne passe jamais sous l'eau.
 
-<p align="center"><img src="docs/images/apocalypse.jpg" alt="Apocalypse : Chambéry sous les eaux" width="85%"><br><sub>Niveau de l'eau à 292 m d'altitude : la cluse de Chambéry est submergée.</sub></p>
+<p align="center"><img src="docs/images/apocalypse.jpg" alt="Apocalypse : la ville sous les eaux" width="85%"><br><sub>La ville sous les eaux : seuls les points hauts émergent.</sub></p>
 
 ### 🎮 Montez à bord ! — vue conducteur
 Cliquez sur n'importe quel véhicule pour le conduire… du regard. En voiture, un **habitacle 3D temps réel** s'affiche :
