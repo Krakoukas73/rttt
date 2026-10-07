@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { buildCabin } from './cabin.js';
 import { OrbitControls } from 'three/addons/OrbitControls.js';
 import { loadDem, buildTerrain } from './terrain.js';
 import { buildRoads, buildWaterMaterial } from './roads.js';
@@ -420,7 +421,7 @@ async function load() {
   trees = buildVegetation(data, terrain); scene.add(trees.group); pre.size(5, geoBytes(trees.group) + resBytes('/orthophoto/')); { const A = data.areas || []; pre.stat(5, join([fmtN(trees.count) + ' arbres', fmtN(A.filter((a) => a.t === 'grass').length) + ' pelouses & parcs', fmtN(A.filter((a) => a.t === 'forest').length) + ' bois & forêts', fmtN(A.filter((a) => a.t === 'scrub').length) + ' broussailles', fmtN(A.filter((a) => a.t === 'sport').length) + ' terrains de sport', fmtN(A.filter((a) => a.t === 'farm').length) + ' parcelles agricoles', fmtN(A.filter((a) => a.t === 'cem').length) + ' cimetières', fmtN(A.filter((a) => a.t === 'pool').length) + ' piscines', fmtN(nres('/orthophoto/')) + ' tuiles photo aérienne']), [['Pelouses', A.filter((a) => a.t === 'grass').length, '#9bb56b'], ['Bois', A.filter((a) => a.t === 'forest').length, '#5f8a4f'], ['Broussailles', A.filter((a) => a.t === 'scrub').length, '#b5bf7d'], ['Sport', A.filter((a) => a.t === 'sport').length, '#d9b26a'], ['Champs', A.filter((a) => a.t === 'farm').length, '#e3cf8f'], ['Eau', A.filter((a) => a.t === 'water').length, '#7fa8c9']]); }
   status('Circulation…');
   await new Promise((r) => setTimeout(r));
-  traffic = buildTraffic(data, terrain); window.__traffic = traffic; scene.add(traffic.group); pre.size(6, geoBytes(traffic.group)); pre.stat(6, join([traffic._ways ? fmtN(traffic._ways.length) + ' voies de circulation' : '', traffic._ways ? fmtN(traffic._ways.filter((w) => w.oneway).length) + ' voies à sens unique' : '', traffic._ways ? fmtN(traffic._ways.filter((w) => w.rb).length) + ' giratoires' : '', 'voitures, bus, camions, motos, vélos', traffic.trains ? 'trains & locomotives' : ''])); traffic.setNight(curNight); traffic.group.visible = $('show-cars').checked; { const f = 0.8 * (1 - 0.6 * (window.__ru || 0)), xm = Math.min(VEH_MAX, Math.floor(traffic.total / f / 500) * 500); $('veh').max = xm; if (+$('veh').value > xm) $('veh').value = xm; const tgt = Math.min(VEH_MAX, +$('veh').dataset.def || 0); if (tgt) { const k = traffic.setBoostedDefault(tgt / f, 1.12); $('veh').value = Math.max(0, Math.min(xm, Math.round(k / f / 500) * 500)); $('o-veh').textContent = k.toLocaleString('fr'); syncVehWarn(); } else $('veh').dispatchEvent(new Event('input')); }   // curseur linéaire (0-8000, pas de 500) plafonné à la capacité réelle du réseau ; réglage par défaut : +12 % sur les véhicules motorisés (tous genres sauf vélos), vélos inchangés (cf. setBoostedDefault dans traffic.js)
+  traffic = buildTraffic(data, terrain); window.__traffic = traffic; scene.add(traffic.group); pre.size(6, geoBytes(traffic.group)); pre.stat(6, join([traffic._ways ? fmtN(traffic._ways.length) + ' voies de circulation' : '', traffic._ways ? fmtN(traffic._ways.filter((w) => w.oneway).length) + ' voies à sens unique' : '', traffic._ways ? fmtN(traffic._ways.filter((w) => w.rb).length) + ' giratoires' : '', 'voitures, bus, camions, motos, vélos', traffic.trains ? 'trains & locomotives' : ''])); traffic.setNight(curNight); traffic.group.visible = $('show-cars').checked; { const f = 0.8 * (1 - 0.6 * (window.__ru || 0)), xm = Math.min(VEH_MAX, Math.floor(traffic.total / f / 500) * 500); $('veh').max = xm; if (+$('veh').value > xm) $('veh').value = xm; const tgt = Math.min(VEH_MAX, +$('veh').dataset.def || 0) * 0.7; if (tgt) { const k = traffic.setBoostedDefault(tgt / f, 1.12); $('veh').value = Math.max(0, Math.min(xm, Math.round(k / f / 500) * 500)); $('o-veh').textContent = k.toLocaleString('fr'); syncVehWarn(); } else $('veh').dispatchEvent(new Event('input')); }   // curseur linéaire (0-8000, pas de 500) plafonné à la capacité réelle du réseau ; réglage par défaut : +12 % sur les véhicules motorisés (tous genres sauf vélos), vélos inchangés (cf. setBoostedDefault dans traffic.js)
   status('Finitions…');
   // Chaque bâtisseur ci-dessous (lampadaires, ponts, glissières, caténaires, trottoirs, mobilier urbain, enseignes)
   // est synchrone et peut, à lui seul, prendre plusieurs centaines de ms à plus d'une seconde sur une grosse ville -
@@ -981,81 +982,67 @@ document.body.appendChild(rideHint);
 const rideAddr = document.createElement('div');   // 2e pastille : adresse en temps réel
 rideAddr.style.cssText = 'position:fixed;top:52px;left:50%;transform:translateX(-50%);padding:7px 14px;border-radius:999px;background:rgba(30,28,25,.72);color:#fff;font:600 14px system-ui,sans-serif;z-index:5;display:none;pointer-events:none;white-space:nowrap';
 document.body.appendChild(rideAddr);
-// ---------- Habitacle : overlay SVG de la vue intérieure d'un véhicule (montants, pare-brise, vitres, rétroviseurs extérieurs et intérieur,
-// volant qui tourne selon le lacet du véhicule, compteur de vitesse + voyants de clignotants/warnings). Pas de « vue dans les rétros » : trop gourmand.
-// L'habitacle est solidaire du véhicule : il est posé dans un plan CSS 3D (perspective = focale de la caméra) que l'on fait pivoter avec la tête du conducteur
-// (yaw/pitch de la vue), si bien qu'en regardant à gauche/droite/haut/bas on voit défiler portières, montants et vitres latérales. Il est cadré sur la zone
-// VISIBLE (à droite du menu de gauche), comme le centre optique de la caméra (cf. syncView).
+// ---------- Habitacle 3D (cf. cabin.js) : vraie géométrie autour des yeux du conducteur, rendue dans une 2e passe (profondeur effacée) avec la même caméra que le monde.
+// Il est solidaire du véhicule : on part de l'orientation réelle de la caméra, on retire la rotation « de tête » (yaw/pitch de la vue) et on y remet l'orientation du véhicule,
+// si bien que le cabinet reste fixe à l'écran quand la voiture tourne, et pivote réellement (portières perpendiculaires, siège arrière, lunette...) quand on tourne la tête.
+const cabin = buildCabin(); window.__cabin = cabin; const _qi = new THREE.Quaternion(), tmpC = new THREE.Camera();
 const cockpit = (() => {
-  const el = document.createElement('div'); el.id = 'cockpit';
-  let ticks = ''; for (let k = 0; k <= 8; k++) { const a = (-120 + k * 30) * Math.PI / 180, sx = Math.sin(a), cy = -Math.cos(a), r1 = k % 2 ? 49 : 44, r2 = 55;
-    ticks += `<line x1="${(800 + sx * r1).toFixed(1)}" y1="${(590 + cy * r1).toFixed(1)}" x2="${(800 + sx * r2).toFixed(1)}" y2="${(590 + cy * r2).toFixed(1)}" stroke="${k % 2 ? '#7d8791' : '#e8edf1'}" stroke-width="${k % 2 ? 1.5 : 2.4}"/>`;
-    if (k % 2 === 0) ticks += `<text x="${(800 + sx * 34).toFixed(1)}" y="${(593 + cy * 34).toFixed(1)}" fill="#c9d1d8" font-size="9.5" font-family="system-ui,sans-serif" font-weight="600" text-anchor="middle">${k * 20}</text>`; }
-  el.innerHTML = `<div class="cp-3d"><svg viewBox="-1600 -900 4800 2700" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="cp-dash" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34373d"/><stop offset=".18" stop-color="#1b1d21"/><stop offset="1" stop-color="#08090b"/></linearGradient>
-      <linearGradient id="cp-roof" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0c0e"/><stop offset="1" stop-color="#23262b"/></linearGradient>
-      <linearGradient id="cp-pil" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#101114"/><stop offset="1" stop-color="#25282d"/></linearGradient>
-      <linearGradient id="cp-pilR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#101114"/><stop offset="1" stop-color="#25282d"/></linearGradient>
-      <linearGradient id="cp-door" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2d32"/><stop offset=".25" stop-color="#16181b"/><stop offset="1" stop-color="#0a0b0d"/></linearGradient>
-      <linearGradient id="cp-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#cfdbe6"/><stop offset=".5" stop-color="#7b8c9b"/><stop offset="1" stop-color="#34414c"/></linearGradient>
-      <linearGradient id="cp-tint" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".07"/><stop offset=".45" stop-color="#fff" stop-opacity=".0"/><stop offset=".62" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
-      <linearGradient id="cp-wheel" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c2f34"/><stop offset="1" stop-color="#111214"/></linearGradient>
-      <radialGradient id="cp-gauge" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#16202a"/><stop offset="1" stop-color="#05080b"/></radialGradient>
-    <linearGradient id="cp-doorS" gradientUnits="userSpaceOnUse" x1="0" y1="600" x2="0" y2="1150"><stop offset="0" stop-color="#2a2d32"/><stop offset=".22" stop-color="#16181b"/><stop offset="1" stop-color="#0a0b0d"/></linearGradient>
-      <g id="cp-side"><path d="M-1600 600 L0 640 V6000 H-1600 Z" fill="url(#cp-doorS)"/><path d="M-1600 600 L0 640" stroke="rgba(255,255,255,.10)" stroke-width="2" fill="none"/>
-        <path d="M-860 40 L-720 40 L-745 622 L-885 616 Z" fill="url(#cp-pil)"/>
-        <path d="M-1600 -200 H-885 V610 H-1600 Z M-1480 120 V500 H-980 V120 Z" fill="#0e0f12" fill-rule="evenodd"/></g>
-    </defs>
-    <rect x="-1600" y="-6000" width="4800" height="6040" fill="#0b0c0e"/><rect x="0" y="880" width="1600" height="5200" fill="#08090b"/>
-    <use href="#cp-side"/><use href="#cp-side" transform="translate(1600 0) scale(-1 1)"/>
-    <path d="M232 78 H1368 L1512 566 Q800 528 88 566 Z" fill="url(#cp-tint)"/>
-    <path d="M0 0 H1600 V52 Q1560 64 1368 78 Q800 120 232 78 Q40 64 0 52 Z" fill="url(#cp-roof)"/>
-    <path d="M232 78 Q800 120 1368 78" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
-    <path d="M0 40 L238 76 L252 88 L96 574 L0 640 Z" fill="url(#cp-pil)"/><path d="M238 76 L252 88 L96 574" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
-    <path d="M1600 40 L1362 76 L1348 88 L1504 574 L1600 640 Z" fill="url(#cp-pilR)"/><path d="M1362 76 L1348 88 L1504 574" fill="none" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
-    <path d="M0 640 L96 574 Q170 590 300 640 L360 900 H0 Z" fill="url(#cp-door)"/><path d="M96 574 Q170 590 300 640" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
-    <path d="M1600 640 L1504 574 Q1430 590 1300 640 L1240 900 H1600 Z" fill="url(#cp-door)"/><path d="M1504 574 Q1430 590 1300 640" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/>
-    <g><path d="M104 520 L70 452" stroke="#0e0f12" stroke-width="13" stroke-linecap="round"/><rect x="6" y="392" width="124" height="84" rx="26" fill="#121316" stroke="#2c2f35" stroke-width="3"/><rect x="17" y="402" width="102" height="64" rx="18" fill="url(#cp-glass)" opacity=".9"/><path d="M26 456 Q60 420 112 410" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none" stroke-linecap="round"/></g>
-    <g><path d="M1496 520 L1530 452" stroke="#0e0f12" stroke-width="13" stroke-linecap="round"/><rect x="1470" y="392" width="124" height="84" rx="26" fill="#121316" stroke="#2c2f35" stroke-width="3"/><rect x="1481" y="402" width="102" height="64" rx="18" fill="url(#cp-glass)" opacity=".9"/><path d="M1490 456 Q1524 420 1576 410" stroke="#fff" stroke-opacity=".35" stroke-width="3" fill="none" stroke-linecap="round"/></g>
-    <g><rect x="788" y="88" width="24" height="42" rx="6" fill="#0e0f12"/><rect x="668" y="120" width="264" height="66" rx="24" fill="#121316" stroke="#2c2f35" stroke-width="3"/><rect x="680" y="130" width="240" height="46" rx="16" fill="url(#cp-glass)" opacity=".88"/><path d="M698 166 Q760 138 880 134" stroke="#fff" stroke-opacity=".3" stroke-width="3" fill="none" stroke-linecap="round"/></g>
-    <path d="M0 704 C300 600 560 560 800 560 C1040 560 1300 600 1600 704 V900 H0 Z" fill="url(#cp-dash)"/>
-    <path d="M0 704 C300 600 560 560 800 560 C1040 560 1300 600 1600 704" fill="none" stroke="rgba(255,255,255,.13)" stroke-width="3"/>
-    <rect x="300" y="628" width="150" height="9" rx="4" fill="#050607" opacity=".8"/><rect x="1150" y="628" width="150" height="9" rx="4" fill="#050607" opacity=".8"/>
-    <path d="M598 650 V572 Q598 514 664 510 H936 Q1002 514 1002 572 V650 Z" fill="#07080a" stroke="#2a2d33" stroke-width="3"/>
-    <circle cx="800" cy="590" r="60" fill="url(#cp-gauge)" stroke="#3a3f46" stroke-width="5"/>
-    ${ticks}
-    <g id="cp-needle"><line x1="800" y1="590" x2="800" y2="540" stroke="#ff6a2b" stroke-width="3" stroke-linecap="round"/><circle cx="800" cy="590" r="5" fill="#ff6a2b"/></g>
-    <text id="cp-spd" x="800" y="616" fill="#fff" font-size="21" font-weight="700" font-family="system-ui,sans-serif" text-anchor="middle">0</text><text x="800" y="628" fill="#8aa0b0" font-size="8" font-family="system-ui,sans-serif" text-anchor="middle">km/h</text>
-    <polygon id="cp-L" points="670,590 706,566 706,582 730,582 730,598 706,598 706,614" fill="#35e06a" opacity=".12"/>
-    <polygon id="cp-R" points="930,590 894,566 894,582 870,582 870,598 894,598 894,614" fill="#35e06a" opacity=".12"/>
-    <g id="cp-wheel"><circle cx="800" cy="880" r="215" fill="none" stroke="url(#cp-wheel)" stroke-width="46"/><circle cx="800" cy="880" r="239" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="2"/><circle cx="800" cy="880" r="191" fill="none" stroke="rgba(0,0,0,.5)" stroke-width="2"/>
-      <path d="M590 868 L744 858 Q756 880 744 902 L590 896 Z" fill="#1a1c20"/><path d="M1010 868 L856 858 Q844 880 856 902 L1010 896 Z" fill="#1a1c20"/><path d="M770 930 L830 930 L840 1010 L760 1010 Z" fill="#1a1c20"/>
-      <circle cx="800" cy="880" r="66" fill="#1d1f23" stroke="#34373c" stroke-width="3"/><circle cx="800" cy="880" r="30" fill="none" stroke="#4a4f57" stroke-width="3"/><rect x="793" y="648" width="14" height="40" rx="4" fill="#e8e8e8"/></g>
-  </svg></div>`;
-  document.body.appendChild(el);
-  const d3 = el.querySelector('.cp-3d'), svg = el.querySelector('svg'), needle = el.querySelector('#cp-needle'), digits = el.querySelector('#cp-spd'), wheel = el.querySelector('#cp-wheel'), L = el.querySelector('#cp-L'), R = el.querySelector('#cp-R');
-  let sp = 0, prev = NaN, yr = 0, wa = 0, cy = 0, cpi = 0, F = 900;
-  // cadrage : la largeur visible de l'habitacle (1600 unités) occupe toute la zone visible ; verticalement on garde plutôt le bas (volant, tableau de bord)
-  const layout = () => { const W = Math.max(50, innerWidth - view.inset), H = innerHeight, vh = 1600 * H / W, y0 = (900 - vh) * (vh > 900 ? 0.12 : 0.6);   // écran étroit : on garde presque tout le haut du pare-brise (le surplus d'habitacle est en bas)
-    svg.setAttribute('viewBox', `-1600 ${(y0 - vh).toFixed(1)} 4800 ${(3 * vh).toFixed(1)}`); F = H / 2 / Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)); el.style.perspective = F.toFixed(1) + 'px'; };
-  const show = (v) => { const mk = v && !v.isTrain && traffic.models[v.mi], ok = !!mk && !mk.cyc && !['moto', 'bike', 'scoot'].includes(mk.kind); el.style.display = ok ? 'block' : 'none'; sp = 0; prev = NaN; yr = 0; wa = 0; cy = 0; cpi = 0; if (ok) layout(); };
+  let sp = 0, prev = NaN, yr = 0, wa = 0;
+  const show = (v) => { const mk = v && !v.isTrain && traffic.models[v.mi], ok = !!mk && !mk.cyc && !['moto', 'bike', 'scoot'].includes(mk.kind); cabin.visible = ok; sp = 0; prev = NaN; yr = 0; wa = 0; cabin.reset(); };
   const update = (dt, v, r) => {
-    if (el.style.display === 'none' || !v) return;
-    const k = Math.min(1, dt * 8); sp += (Math.max(0, (v.v || 0) * 3.6) - sp) * k;
-    needle.setAttribute('transform', `rotate(${(-120 + Math.min(sp, 160) / 160 * 240).toFixed(1)} 800 590)`); digits.textContent = Math.round(sp);
+    if (!cabin.visible || !v || !r.qt || !r.qc) return;
+    sp += (Math.max(0, (v.v || 0) * 3.6) - sp) * Math.min(1, dt * 8);
     const psi = Math.atan2(v.hz || 0, v.hx || 1);   // x = est, z = sud : virage à droite = cap qui augmente = volant dans le sens horaire
     if (isFinite(prev) && dt > 1e-4) { let d = psi - prev; while (d > Math.PI) d -= 2 * Math.PI; while (d < -Math.PI) d += 2 * Math.PI; yr += (d / dt - yr) * Math.min(1, dt * 6); }
     prev = psi; wa += (THREE.MathUtils.clamp(yr * 300, -170, 170) - wa) * Math.min(1, dt * 10);
-    wheel.setAttribute('transform', `rotate(${wa.toFixed(1)} 800 880)`);
-    const sg = traffic.signal ? traffic.signal() : 0, on = (performance.now() % 700) < 400;
-    L.setAttribute('opacity', (sg === -1 || sg === 2) && on ? 1 : 0.12); R.setAttribute('opacity', (sg === 1 || sg === 2) && on ? 1 : 0.12);
-    // tête du conducteur : même constante de temps que le lissage de la caméra de visite, pour que cabine et monde restent solidaires
-    const kc = 1 - Math.exp(-dt * 9); cy += ((r ? r.yaw : 0) - cy) * kc; cpi += ((r ? r.pitch : 0) - cpi) * kc;
-    d3.style.transform = `translateZ(${F.toFixed(1)}px) rotateX(${(Math.atan(cpi) * 57.2958).toFixed(2)}deg) rotateY(${(cy * 57.2958).toFixed(2)}deg) translateZ(${(-F).toFixed(1)}px)`;
+    cabin.update({ speed: sp, wheel: wa, sg: traffic.signal ? traffic.signal() : 0, hour, night: curNight, addr: rideAddr.textContent });
+    cabin.group.position.copy(camera.position);
+    cabin.group.quaternion.copy(camera.quaternion).multiply(_qi.copy(r.qt).invert()).multiply(r.qc);
   };
-  return { show, hide: () => { el.style.display = 'none'; }, update, layout };
+  return { show, hide: () => { cabin.visible = false; }, update };
 })();
+
+// ---------- Rétroviseurs temps réel : vue arrière réellement rendue dans les 3 glaces (intérieur + 2 extérieurs) ----------
+// Coût maîtrisé : cibles minuscules (≈ 0,15 mégapixel au total), UN seul rétro redessiné par image (rotation c → g → d), pas de recalcul des ombres (on réutilise la carte d'ombres de la passe
+// principale), et dégradation automatique si la fluidité baisse (1 image sur 2, puis arrêt avec retour au décor peint ; nouvel essai après quelques secondes).
+const mirr = window.__mirr = (() => {
+  const mk = (w, h) => new THREE.WebGLRenderTarget(w, h, { type: THREE.HalfFloatType, depthBuffer: true });
+  const RT = { l: mk(256, 144), c: mk(512, 112), r: mk(256, 144) };
+  const CAM = { l: new THREE.PerspectiveCamera(36, 256 / 144, 0.5, 30000), c: new THREE.PerspectiveCamera(30, 512 / 112, 0.5, 30000), r: new THREE.PerspectiveCamera(36, 256 / 144, 0.5, 30000) };
+  const _M = new THREE.Vector3(), _N = new THREE.Vector3(), _U = new THREE.Vector3(), _E = new THREE.Vector3(), _P = new THREE.Vector3(), _Q = new THREE.Vector3(), _R = new THREE.Vector3(), _V = new THREE.Vector3();
+  const ORDER = ['c', 'l', 'r'], TEX = { l: RT.l.texture, c: RT.c.texture, r: RT.r.texture };
+  let lock = -1, forceOff = false, i = 0, fr = 0, level = 0, t0 = 0, n = 0, wait = 0, penalty = 8, live = false, ready = { l: false, c: false, r: false };
+  const setLive = (on) => { if (on === live) return; live = on; cabin.setMirrorLive(on ? { l: ready.l && TEX.l, c: ready.c && TEX.c, r: ready.r && TEX.r } : null); };
+  const reset = () => { level = 0; n = 0; t0 = performance.now(); wait = 0; penalty = 8; fr = 0; ready = { l: false, c: false, r: false }; live = true; setLive(false); };
+  const update = (v) => {
+    if (!ride || !cabin.visible || !v) { if (live) setLive(false); return; }
+    // suivi de la fluidité sur ~1,2 s
+    n++; const now = performance.now();
+    if (now - t0 > 1200) {
+      const fps = n * 1000 / (now - t0); n = 0; t0 = now;
+      if (level < 2 && fps < (level ? 24 : 36)) { level++; if (level === 2) { wait = penalty; penalty = Math.min(60, penalty * 2); } }
+      else if (level === 2) { wait -= 1.2; if (wait <= 0) level = 1; }
+    }
+    if (lock >= 0) level = lock;
+    if (level >= 2 || forceOff) { if (live) setLive(false); return; }
+    if (++fr % (level + 1)) return;
+    // vrai miroir plan : on rend le monde depuis l'œil symétrique (E' = symétrique de l'œil par rapport au plan de la glace), regardant à travers la glace (fenêtre = la glace elle-même, frustum décentré)
+    const k = ORDER[i++ % 3], cam = CAM[k], mr = cabin.mirrors[k]; if (!mr) return;
+    cabin.group.updateMatrixWorld(true); const mw = mr.gl.matrixWorld;
+    _M.setFromMatrixPosition(mw); _N.set(0, 0, 1).transformDirection(mw); _U.set(0, 1, 0).transformDirection(mw); _E.copy(cabin.group.position);
+    const d = _P.copy(_E).sub(_M).dot(_N); if (!(d > 0.05)) return;
+    cam.position.copy(_E).addScaledVector(_N, -2 * d); cam.up.copy(_U); cam.lookAt(_Q.copy(cam.position).add(_N)); cam.updateMatrixWorld(true);
+    _R.set(1, 0, 0).applyQuaternion(cam.quaternion); _V.set(0, 1, 0).applyQuaternion(cam.quaternion); _P.copy(_M).sub(cam.position);
+    const xc = _P.dot(_R), yc = _P.dot(_V);
+    cam.projectionMatrix.makePerspective(xc - mr.w / 2, xc + mr.w / 2, yc + mr.h / 2, yc - mr.h / 2, d, 30000); cam.projectionMatrixInverse.copy(cam.projectionMatrix).invert();
+    const prev = renderer.getRenderTarget(), sa = renderer.shadowMap.autoUpdate; renderer.shadowMap.autoUpdate = false;
+    renderer.setRenderTarget(RT[k]); renderer.render(scene, cam); renderer.setRenderTarget(prev); renderer.shadowMap.autoUpdate = sa;
+    if (!ready[k]) { ready[k] = true; live = false; }
+    setLive(true);
+  };
+  return { update, reset, get level() { return level; }, set off(b) { forceOff = !!b; }, set lock(l) { lock = l; } };
+})();
+function drawCabin() { if (!ride || !cabin.visible) return; renderer.autoClear = false; renderer.clearDepth(); renderer.render(cabin.scene, camera); renderer.autoClear = true; }
 // ---------- Zone visible : le menu de gauche masque une bande de l'écran ; le centre « utile » de l'image (point visé, cible, habitacle, pastilles) est le centre de la zone
 // restante. La caméra reçoit donc un décalage de vue (centre optique déplacé à droite) et le post-traitement (barillet / tilt-shift) le même centre.
 const view = { inset: 0, ndc: 0 };
@@ -1067,7 +1054,6 @@ function syncView() {
   post.mat.uniforms.uC.value = view.ndc;
   document.documentElement.style.setProperty('--vis-l', inset + 'px');
   const cx = (inset + (innerWidth - inset) / 2).toFixed(1) + 'px'; rideHint.style.left = cx; rideAddr.style.left = cx;
-  if (ride) cockpit.layout();
 }
 let addrIdx = null, addrT = 0;
 function buildAddr(data) {   // index spatial : tronçons de rues nommées + numéros (OSM)
@@ -1111,28 +1097,30 @@ function pickAt(cx, cy) {   // pointe un véhicule : l'écran est déformé par 
 }
 function startRide(v) {
   ride = { v, yaw: 0, pitch: 0, off: camera.position.clone().sub(controls.target), tilt, near: camera.near };
-  controls.enabled = false; tilt = 0; camera.near = 0.25; camera.updateProjectionMatrix(); traffic.setRide(v);
+  controls.enabled = false; tilt = 0; camera.near = 0.25; ride.fov = camera.fov; camera.fov = 80; camera.updateProjectionMatrix(); traffic.setRide(v); mirr.reset();   // champ plus large en immersion (les deux rétros extérieurs entrent dans l'image)
   hoverV = null; ring.visible = false; rideHint.style.display = 'block'; addrT = 0; rideAddr.style.display = 'block'; rideAddr.textContent = addrAt(v.x, v.z) || '📍 …'; renderer.domElement.style.cursor = 'var(--c-grabbing)'; cockpit.show(v);
 }
 function stopRide() {
   const r = ride; if (!r) return; ride = null; traffic.setRide(null); cockpit.hide(); rideHint.style.display = 'none'; rideAddr.style.display = 'none'; renderer.domElement.style.cursor = '';
-  tilt = r.tilt; camera.near = r.near; camera.updateProjectionMatrix(); controls.enabled = true;
+  tilt = r.tilt; camera.near = r.near; camera.fov = r.fov || 55; camera.updateProjectionMatrix(); controls.enabled = true;
   controls.target.set(r.v.x, r.v.y, r.v.z); camera.position.copy(controls.target).add(r.off); controls.update();
 }
 function rideCamera(dt) {
   const v = ride.v, moto = !v.isTrain && traffic.models[v.mi].kind === 'moto', e = traffic.eye(v), fw = v.len * (v.isTrain ? 0.32 : 0.05), sd = moto || v.isTrain ? 0 : -0.36 * v.sc;
   controls.target.set(v.x, v.y, v.z);
-  camera.position.set(v.x + v.hx * fw - v.hz * sd, v.y + e, v.z + v.hz * fw + v.hx * sd);
+  camera.position.set(v.x + v.hx * fw - v.hz * sd, v.y + e + (cabin.visible ? 0.15 : 0), v.z + v.hz * fw + v.hx * sd);   // +15 cm : yeux relevés dans l'habitacle
   if (floodOn && floodPlane && camera.position.y < floodPlane.position.y + 2) camera.position.y = floodPlane.position.y + 2;   // montée des eaux : jamais sous la surface, même en immersion
   const ya = Math.atan2(v.hz, v.hx) + ride.yaw, dx = Math.cos(ya), dz = Math.sin(ya);
   tmpO.position.copy(camera.position); tmpO.lookAt(camera.position.x + dx * 30, camera.position.y - 0.9 + ride.pitch * 30 - (v.pitch || 0) * 12, camera.position.z + dz * 30);
+  ride.qt = (ride.qt || new THREE.Quaternion()).copy(tmpO.quaternion);   // orientation visée par la tête ; qc = orientation du véhicule seul (pour l'habitacle)
+  tmpC.position.copy(camera.position); tmpC.lookAt(camera.position.x + v.hx * 30, camera.position.y - 0.9 - (v.pitch || 0) * 12, camera.position.z + v.hz * 30); ride.qc = (ride.qc || new THREE.Quaternion()).copy(tmpC.quaternion);
   camera.quaternion.slerp(tmpO.quaternion, 1 - Math.exp(-dt * 9));
   if (!ride.drag) { const k = Math.exp(-dt * 1.2); ride.yaw *= k; ride.pitch *= k; }
 }
 {
   const cv = renderer.domElement;
   cv.addEventListener('pointermove', (e) => {
-    if (ride) { if (e.buttons & 1) { ride.drag = true; ride.yaw = Math.max(-2.4, Math.min(2.4, ride.yaw + e.movementX * 0.006)); ride.pitch = Math.max(-0.7, Math.min(0.7, ride.pitch - e.movementY * 0.004)); } return; }
+    if (ride) { if (e.buttons & 1) { ride.drag = true; ride.yaw = Math.max(-3.3, Math.min(3.3, ride.yaw + e.movementX * 0.006)); ride.pitch = Math.max(-0.7, Math.min(0.7, ride.pitch - e.movementY * 0.004)); } return; }
     mouse.x = e.clientX; mouse.y = e.clientY; mouse.in = true;
   });
   cv.addEventListener('pointerleave', () => { mouse.in = false; hoverV = null; ring.visible = false; cv.style.cursor = ''; });
@@ -1176,8 +1164,7 @@ renderer.setAnimationLoop(() => {
   sky.group.position.copy(camera.position);
   if (traffic && traffic.group.visible && !floodOn) traffic.update(dt, camera.position, camera);   // montée des eaux active : véhicules et trains figés (sinon ils "nageraient")
   if (furn && furn.furn.visible) furn.update(performance.now() / 1000);
-  if (ride) cockpit.update(dt, ride.v, ride);
-  if (ride) { rideCamera(dt); if ((addrT -= dt) <= 0) { addrT = 0.4; rideAddr.textContent = '📍 ' + (addrAt(ride.v.x, ride.v.z) || 'hors voie nommée'); } } else { updateHover(dt); if ((addrT -= dt) <= 0) { addrT = 0.4; rideAddr.style.display = 'block'; rideAddr.textContent = '📍 ' + (addrAt(camera.position.x, camera.position.z) || 'hors voie nommée'); } }   // mode normal : même pastille, adresse à la verticale de la caméra
+  if (ride) { rideCamera(dt); cockpit.update(dt, ride.v, ride); if ((addrT -= dt) <= 0) { addrT = 0.4; rideAddr.textContent = '📍 ' + (addrAt(ride.v.x, ride.v.z) || 'hors voie nommée'); } } else { updateHover(dt); if ((addrT -= dt) <= 0) { addrT = 0.4; rideAddr.style.display = 'block'; rideAddr.textContent = '📍 ' + (addrAt(camera.position.x, camera.position.z) || 'hors voie nommée'); } }   // mode normal : même pastille, adresse à la verticale de la caméra
   acc += dt; uiAcc += dt;
   if (playing || acc > 0.25) { acc = 0; applyTime(); }
   if (uiAcc > 0.15 && terrain) {
@@ -1187,10 +1174,10 @@ renderer.setAnimationLoop(() => {
   }
   { const ha = ride ? 2 : agl(), tg = 0.12 * (1 - THREE.MathUtils.smootherstep(ha, 250, 6000)); distort += (tg - distort) * (1 - Math.exp(-dt * 2.5)); if (Math.abs(tg - distort) < 1e-4) distort = tg; }   // barillet : 12 % en vue basse/immersive, décroît très progressivement avec l'altitude jusqu'à 0 à 6 km
   if (Math.abs(distort) > 0.005 || tilt > 0.005) {
-    ensureRT(); renderer.setRenderTarget(post.rt); renderer.render(scene, camera); renderer.setRenderTarget(null);
+    ensureRT(); renderer.setRenderTarget(post.rt); renderer.render(scene, camera); if (ride) mirr.update(ride.v); drawCabin(); renderer.setRenderTarget(null);
     post.mat.uniforms.tDiffuse.value = post.rt.texture; post.mat.uniforms.uK.value = distort; post.mat.uniforms.uT.value = tilt; post.mat.uniforms.uPx.value.set(1 / post.rt.width, 1 / post.rt.height); post.mat.uniforms.uAsp.value = innerWidth / innerHeight;
     renderer.render(post.scene, post.cam);
-  } else renderer.render(scene, camera);
+  } else { renderer.render(scene, camera); if (ride) mirr.update(ride.v); drawCabin(); }
   updateLabels();
   updateCompass();
 });

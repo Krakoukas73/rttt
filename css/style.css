@@ -324,9 +324,6 @@ a,button,summary,select,label,[role=button],input[type=range],input[type=checkbo
 button:disabled,input:disabled,select:disabled,.act:disabled{cursor:var(--c-no)}
 #scene canvas{cursor:var(--c-grab)}#scene canvas:active{cursor:var(--c-grabbing)}
 #loading .pl{cursor:var(--c-busy)}#loading .pl-go{cursor:var(--c-ptr)}
-#cockpit{position:fixed;top:0;bottom:0;right:0;left:var(--vis-l,0px);z-index:1;pointer-events:none;display:none;overflow:hidden}   /* habitacle de la vue en véhicule : cadré sur la zone visible (à droite du menu de gauche), au-dessus du canevas 3D, sous le panneau */
-#cockpit .cp-3d{position:absolute;inset:0;transform-style:preserve-3d;will-change:transform}
-#cockpit svg{position:absolute;left:-100%;top:-100%;width:300%;height:300%;display:block;backface-visibility:hidden}
 
 /* présentation : les rubriques (Le principe, D'où viennent les données ?, apocalypse, Comment ça marche ?) sont empilées à la verticale, chacune répartie sur 2 colonnes, séparées par un filet */
 .pk-intro>.pk-pitch,.pk-intro>.pk-sources,.pk-intro>.pk-apoc,.pk-intro>.pk-how{column-count:2;column-gap:60px;column-rule:1px solid var(--line);margin:0;text-align:left}
