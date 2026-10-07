@@ -9,9 +9,9 @@
 ![Data](https://img.shields.io/badge/data-OpenStreetMap%20%2B%20IGN-2e7d32)
 ![Status](https://img.shields.io/badge/status-work%20in%20progress-orange)
 
-<img src="docs/images/hero-chambery-aerial.jpg" alt="Chambéry – vue aérienne" width="100%">
+<img src="docs/images/arclusaz-savoie.jpg" alt="Le massif de l'Arclusaz et sa vallée, en Savoie" width="100%">
 
-<sub>Chambéry (73000) — rendu RtTT · données © contributeurs OpenStreetMap, IGN</sub>
+<sub>Le massif de l'Arclusaz (Savoie) — rendu RtTT · données © contributeurs OpenStreetMap, IGN</sub>
 
 ### 🌐 [**Démo en ligne → piregwan-genesis.com/laboratory/rtt**](https://piregwan-genesis.com/laboratory/rtt/)
 
@@ -39,7 +39,16 @@ Il fonctionne sur plusieurs villes et villages très différents (urbain dense, 
 - **Relief réel** (plusieurs centaines de milliers de points de maillage) et **photo aérienne IGN** à la demande.
 - **Routes, ponts, tunnels, rivières, voies ferrées, glissières, caténaires, lampadaires, mobilier urbain, enseignes**, noms de rues, de quartiers, de sommets, numéros de rue.
 
-<p align="center"><img src="docs/images/city-details.jpg" alt="Détails de la ville" width="85%"><br><sub>Vieille ville · relief et montagnes · rue avec circulation · photo aérienne IGN (© IGN, Licence Ouverte) mapée sur le terrain</sub></p>
+<table align="center">
+<tr>
+<td align="center" width="50%"><img src="docs/images/old-town.jpg" alt="La vieille ville vue du ciel"><br><sub>La vieille ville : ruelles, toits et places.</sub></td>
+<td align="center" width="50%"><img src="docs/images/relief.jpg" alt="Relief et montagnes"><br><sub>Le relief réel : vallées, versants et sommets.</sub></td>
+</tr>
+<tr>
+<td align="center" width="50%"><img src="docs/images/street-traffic.jpg" alt="Une rue avec sa circulation"><br><sub>Une rue et sa circulation, au ras du bitume.</sub></td>
+<td align="center" width="50%"><img src="docs/images/aerial-photo.jpg" alt="Photo aérienne IGN mapée sur le terrain"><br><sub>Photo aérienne IGN (© IGN, Licence Ouverte) mapée sur le terrain.</sub></td>
+</tr>
+</table>
 
 ### 🚦 Une circulation vivante
 - Les véhicules motorisés suivent le **vrai réseau routier** : sens uniques, ronds-points, limitations de vitesse.
@@ -60,7 +69,12 @@ Il fonctionne sur plusieurs villes et villages très différents (urbain dense, 
 ### 🏛️ Rendu maquette
 Un bouton **« Rendu maquette »** fait basculer la ville dans un style épuré façon **plan-masse d'architecte** : bâtiments, arbres et terrain en volumes blancs façon maquette d'architecte, sans photo aérienne, noms et repères masqués, lumière de plein jour fixe (le temps est alors figé à 12 h 30), le tout sous un effet de **flou de profondeur « tilt-shift »** qui donne à la ville des airs de maquette posée sur une table. Un second clic ramène au rendu normal en restituant l'heure et les réglages précédents.
 
-<p align="center"><img src="docs/images/maquette.jpg" alt="Rendu maquette" width="85%"><br><sub>Rendu maquette.</sub></p>
+<table align="center">
+<tr>
+<td align="center" width="50%"><img src="docs/images/maquette-1.jpg" alt="Rendu maquette d'un centre-ville dense"><br><sub>Rendu maquette : un centre-ville dense.</sub></td>
+<td align="center" width="50%"><img src="docs/images/maquette-2.jpg" alt="Rendu maquette d'un village de montagne"><br><sub>Rendu maquette : un village de montagne.</sub></td>
+</tr>
+</table>
 
 ### 🌊 Apocalypse : la montée des eaux
 Un curseur **« Niveau de l'eau »** (altitude réelle, en mètres) permet de noyer la ville à la main, et le bouton **« Simuler l'Apocalypse »** lance un traveling cinématographique : le temps est figé à 14 h, la caméra tourne autour de la ville et l'eau monte jusqu'au niveau maximal. Les bâtiments, les routes et les arbres disparaissent sous la surface, et la caméra ne passe jamais sous l'eau.
@@ -88,7 +102,12 @@ Cliquez sur n'importe quel véhicule pour le conduire… du regard. En voiture, 
 ## 🏘️ Villes incluses
 
 Chambéry, Cruet, Montmélian, Arbin, Le Bourget-du-Lac, Saint-Pierre-d'Albigny, Albiez-Montrond, Saint-Amour (Jura), Paris 11ᵉ – Canal Saint-Martin, La Croix-Valmer – Gigaro, Gruissan, île d'Ouessant.
-<p align="center"><img src="docs/images/other-towns.jpg" alt="Albiez-Montrond (montagne) et île d'Ouessant" width="90%"><br><sub>À gauche : Albiez-Montrond, village de montagne et ses forêts de résineux. À droite : l'île d'Ouessant, ses landes, ses côtes et sa piste d'aérodrome.</sub></p>
+<table align="center">
+<tr>
+<td align="center" width="50%"><img src="docs/images/albiez-montrond.jpg" alt="Albiez-Montrond, village de montagne"><br><sub>Albiez-Montrond : un village de montagne et ses forêts de résineux.</sub></td>
+<td align="center" width="50%"><img src="docs/images/ouessant.jpg" alt="L'île d'Ouessant"><br><sub>L'île d'Ouessant : ses landes, ses côtes et sa piste d'aérodrome.</sub></td>
+</tr>
+</table>
 
 **Ajouter une ville** : il suffit de la déclarer dans `lib/cities.json` ; ses données sont ensuite récupérées et mises en cache automatiquement.
 
