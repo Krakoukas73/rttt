@@ -1,0 +1,116 @@
+20:56:27 [batiments] déjà téléchargé (cache)
+20:56:27 [routes] déjà téléchargé (cache)
+20:56:27 [zones] déjà téléchargé (cache)
+20:56:27 [littoral] téléchargement…
+20:56:27   -> https://overpass-api.de/api/interpreter
+20:56:37      échec : HTTP 504 
+20:56:57   -> https://overpass.private.coffee/api/interpreter
+20:59:15 [batiments] déjà téléchargé (cache)
+20:59:15 [routes] déjà téléchargé (cache)
+20:59:15 [zones] déjà téléchargé (cache)
+20:59:15 [littoral] téléchargement…
+20:59:15   -> https://overpass-api.de/api/interpreter
+20:59:24 [lieux] déjà téléchargé (cache)
+20:59:24 [noms] déjà téléchargé (cache)
+20:59:24 [commerces] déjà téléchargé (cache)
+20:59:24 [sommets] déjà téléchargé (cache)
+20:59:24 [numeros] déjà téléchargé (cache)
+20:59:24 [mobilier2] déjà téléchargé (cache)
+20:59:24 [mobilier3] déjà téléchargé (cache)
+20:59:24 [arbres] déjà téléchargé (cache)
+20:59:24 [relief] tuiles AWS Terrarium…
+20:59:24 [orthophoto] tuiles IGN…
+20:59:24 [cadastre_batiments] déjà téléchargé (cache)
+20:59:24 [bdtopo_routes] déjà téléchargé (cache)
+20:59:24   [cadastre] 154 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+20:59:24 [cadastre/BD TOPO] 249 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+20:59:24 OK : 6195 bâtiments, 1165 arbres, 2325 routes/rails/cours d'eau, 868 zones, relief oui
+21:01:10   (attention : vérification SSL désactivée, le certificat n'a pas pu être validé)
+21:01:10 [lieux] déjà téléchargé (cache)
+21:01:10 [noms] déjà téléchargé (cache)
+21:01:10 [commerces] déjà téléchargé (cache)
+21:01:10 [sommets] déjà téléchargé (cache)
+21:01:10 [numeros] déjà téléchargé (cache)
+21:01:10 [mobilier2] déjà téléchargé (cache)
+21:01:10 [mobilier3] déjà téléchargé (cache)
+21:01:10 [arbres] déjà téléchargé (cache)
+21:01:10 [relief] tuiles AWS Terrarium…
+21:01:10 [orthophoto] tuiles IGN…
+21:01:10 [cadastre_batiments] déjà téléchargé (cache)
+21:01:10 [bdtopo_routes] déjà téléchargé (cache)
+21:01:10   [cadastre] 154 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+21:01:10 [cadastre/BD TOPO] 249 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+21:01:11 OK : 6195 bâtiments, 1165 arbres, 2325 routes/rails/cours d'eau, 868 zones, relief oui
+11:31:19 [orthophoto z19] 0 tuiles à télécharger
+11:31:19 [orthophoto z19] terminé : 0 ok, 0 échecs
+11:41:35 [orthophoto z19] 0 tuiles à télécharger
+11:41:35 [orthophoto z19] terminé : 0 ok, 0 échecs
+03:00:46 [orthophoto z19] 0 tuiles à télécharger
+03:00:46 [orthophoto z19] terminé : 0 ok, 0 échecs
+04:27:21 [orthophoto z19] 0 tuiles à télécharger
+04:27:21 [orthophoto z19] terminé : 0 ok, 0 échecs
+05:24:14 [orthophoto z19] 0 tuiles à télécharger
+05:24:14 [orthophoto z19] terminé : 0 ok, 0 échecs
+09:45:22 [batiments] déjà téléchargé (cache)
+09:45:22 [routes] téléchargement…
+09:45:22   -> https://overpass-api.de/api/interpreter
+09:45:24 [zones] téléchargement…
+09:45:24   -> https://overpass-api.de/api/interpreter
+09:45:27 [littoral] déjà téléchargé (cache)
+09:45:27 [lieux] déjà téléchargé (cache)
+09:45:27 [noms] déjà téléchargé (cache)
+09:45:27 [commerces] déjà téléchargé (cache)
+09:45:27 [sommets] déjà téléchargé (cache)
+09:45:27 [numeros] déjà téléchargé (cache)
+09:45:27 [mobilier2] déjà téléchargé (cache)
+09:45:27 [mobilier3] déjà téléchargé (cache)
+09:45:27 [arbres] déjà téléchargé (cache)
+09:45:27 [relief] tuiles AWS Terrarium…
+09:45:27 [orthophoto] tuiles IGN…
+09:45:27 [cadastre_batiments] déjà téléchargé (cache)
+09:45:27 [bdtopo_routes] déjà téléchargé (cache)
+09:45:27   [cadastre] 154 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+09:45:27 [cadastre/BD TOPO] 249 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+09:45:27 OK : 6195 bâtiments, 1165 arbres, 3092 routes/rails/cours d'eau, 868 zones, relief oui
+14:57:28 [batiments] déjà téléchargé (cache)
+14:57:28 [routes] téléchargement…
+14:57:28   -> https://overpass-api.de/api/interpreter
+14:57:31 [zones] téléchargement…
+14:57:31   -> https://overpass-api.de/api/interpreter
+14:57:39      échec : HTTP 504 
+14:57:59   -> https://overpass.private.coffee/api/interpreter
+14:59:14 [littoral] déjà téléchargé (cache)
+14:59:14 [lieux] déjà téléchargé (cache)
+14:59:14 [noms] déjà téléchargé (cache)
+14:59:14 [commerces] déjà téléchargé (cache)
+14:59:14 [sommets] déjà téléchargé (cache)
+14:59:14 [numeros] déjà téléchargé (cache)
+14:59:14 [mobilier2] déjà téléchargé (cache)
+14:59:14 [mobilier3] déjà téléchargé (cache)
+14:59:14 [arbres] déjà téléchargé (cache)
+14:59:14 [relief] tuiles AWS Terrarium…
+14:59:14 [orthophoto] tuiles IGN…
+14:59:14 [cadastre_batiments] déjà téléchargé (cache)
+14:59:14 [bdtopo_routes] déjà téléchargé (cache)
+14:59:14   [cadastre] 154 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+14:59:14 [cadastre/BD TOPO] 249 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+14:59:14 OK : 6195 bâtiments, 1165 arbres, 3092 routes/rails/cours d'eau, 867 zones, relief oui
+15:23:33 [batiments] déjà téléchargé (cache)
+15:23:33 [routes] déjà téléchargé (cache)
+15:23:33 [zones] déjà téléchargé (cache)
+15:23:33 [littoral] déjà téléchargé (cache)
+15:23:33 [lieux] déjà téléchargé (cache)
+15:23:33 [noms] déjà téléchargé (cache)
+15:23:33 [commerces] déjà téléchargé (cache)
+15:23:33 [sommets] déjà téléchargé (cache)
+15:23:33 [numeros] déjà téléchargé (cache)
+15:23:33 [mobilier2] déjà téléchargé (cache)
+15:23:33 [mobilier3] déjà téléchargé (cache)
+15:23:33 [arbres] déjà téléchargé (cache)
+15:23:33 [relief] tuiles AWS Terrarium…
+15:23:33 [orthophoto] tuiles IGN…
+15:23:33 [cadastre_batiments] déjà téléchargé (cache)
+15:23:33 [bdtopo_routes] déjà téléchargé (cache)
+15:23:33   [cadastre] 154 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+15:23:34 [cadastre/BD TOPO] 249 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+15:23:34 OK : 6195 bâtiments, 1165 arbres, 3092 routes/rails/cours d'eau, 867 zones, relief oui

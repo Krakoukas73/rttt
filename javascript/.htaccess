@@ -1,0 +1,13 @@
+# Les modules JS (roads.js, roadside.js, bridges.js, etc.) sont importes depuis main.js SANS parametre de
+# cache-busting (import statique ES "./xxx.js", pas d'URL versionnee possible) - contrairement a main.js lui-meme,
+# servi avec ?v=<mtime> par index.php. Sans cet en-tete, un navigateur qui a mis en cache une ancienne version
+# d'un de ces fichiers (cache heuristique par defaut d'Apache, base sur Last-Modified) peut continuer a l'utiliser
+# pendant des jours apres une modification cote serveur, sans aucun moyen de le savoir ni de le forcer autrement
+# qu'en vidant son cache - d'ou des correctifs invisibles pour l'utilisateur alors que le fichier serveur est a jour.
+# "no-cache" (pas "no-store") : le fichier reste mis en cache, mais revalide (ETag/Last-Modified, reponse 304 bon
+# marche si inchange) a CHAQUE chargement de page - un correctif deploye est donc visible des le rechargement suivant.
+<IfModule mod_headers.c>
+<FilesMatch "\.js$">
+Header set Cache-Control "no-cache"
+</FilesMatch>
+</IfModule>

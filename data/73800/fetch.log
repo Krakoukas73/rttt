@@ -1,0 +1,455 @@
+21:00:10 [batiments] déjà téléchargé (cache)
+21:00:10 [routes] déjà téléchargé (cache)
+21:00:10 [zones] déjà téléchargé (cache)
+21:00:10 [littoral] téléchargement…
+21:00:10   -> https://overpass-api.de/api/interpreter
+21:00:25      échec : HTTP 504 
+21:00:45   -> https://overpass.private.coffee/api/interpreter
+21:01:39 [lieux] déjà téléchargé (cache)
+21:01:39 [noms] déjà téléchargé (cache)
+21:01:39 [commerces] déjà téléchargé (cache)
+21:01:39 [sommets] déjà téléchargé (cache)
+21:01:39 [numeros] déjà téléchargé (cache)
+21:01:39 [mobilier2] déjà téléchargé (cache)
+21:01:39 [mobilier3] déjà téléchargé (cache)
+21:01:39 [arbres] déjà téléchargé (cache)
+21:01:39 [relief] tuiles AWS Terrarium…
+21:01:39 [orthophoto] tuiles IGN…
+21:01:39 [cadastre_batiments] déjà téléchargé (cache)
+21:01:39 [bdtopo_routes] déjà téléchargé (cache)
+21:01:39   [cadastre] 88 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+21:01:39 [cadastre/BD TOPO] 66 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+21:01:39 OK : 3822 bâtiments, 113 arbres, 1506 routes/rails/cours d'eau, 370 zones, relief oui
+11:31:12 [orthophoto z19] 0 tuiles à télécharger
+11:31:12 [orthophoto z19] terminé : 0 ok, 0 échecs
+11:41:29 [orthophoto z19] 0 tuiles à télécharger
+11:41:29 [orthophoto z19] terminé : 0 ok, 0 échecs
+03:00:38 [orthophoto z19] 0 tuiles à télécharger
+03:00:38 [orthophoto z19] terminé : 0 ok, 0 échecs
+04:27:13 [orthophoto z19] 0 tuiles à télécharger
+04:27:13 [orthophoto z19] terminé : 0 ok, 0 échecs
+05:24:08 [orthophoto z19] 0 tuiles à télécharger
+05:24:08 [orthophoto z19] terminé : 0 ok, 0 échecs
+09:59:35 [batiments] déjà téléchargé (cache)
+09:59:35 [routes] téléchargement…
+09:59:35   -> https://overpass-api.de/api/interpreter
+09:59:39 [zones] téléchargement…
+09:59:39   -> https://overpass-api.de/api/interpreter
+09:59:49 [littoral] déjà téléchargé (cache)
+09:59:49 [lieux] déjà téléchargé (cache)
+09:59:49 [noms] déjà téléchargé (cache)
+09:59:49 [commerces] déjà téléchargé (cache)
+09:59:49 [sommets] déjà téléchargé (cache)
+09:59:49 [numeros] déjà téléchargé (cache)
+09:59:49 [mobilier2] déjà téléchargé (cache)
+09:59:49 [mobilier3] déjà téléchargé (cache)
+09:59:49 [arbres] déjà téléchargé (cache)
+09:59:49 [relief] tuiles AWS Terrarium…
+09:59:49 [orthophoto] tuiles IGN…
+09:59:49 [cadastre_batiments] déjà téléchargé (cache)
+09:59:49 [bdtopo_routes] déjà téléchargé (cache)
+09:59:49   [cadastre] 88 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+09:59:49 [cadastre/BD TOPO] 66 bâtiment(s) sans contrepartie cadastrale retiré(s), 65 tronçon(s) routier(s) orphelin(s) retiré(s)
+09:59:49 OK : 3822 bâtiments, 113 arbres, 1614 routes/rails/cours d'eau, 370 zones, relief oui
+14:47:47 [batiments] déjà téléchargé (cache)
+14:47:47 [routes] téléchargement…
+14:47:47   -> https://overpass-api.de/api/interpreter
+14:47:54      échec : HTTP 504 
+14:48:14   -> https://overpass.private.coffee/api/interpreter
+14:49:31 [zones] téléchargement…
+14:49:31   -> https://overpass-api.de/api/interpreter
+14:49:38      échec : HTTP 504 
+14:49:58   -> https://overpass.private.coffee/api/interpreter
+14:51:43      échec : HTTP 504 
+14:52:03   -> https://overpass.kumi.systems/api/interpreter
+14:53:58      échec : HTTP 502 
+14:53:58   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+14:53:59      échec : HTTP 504 
+14:54:19   -> https://overpass-api.de/api/interpreter
+14:54:27 [littoral] déjà téléchargé (cache)
+14:54:27 [lieux] déjà téléchargé (cache)
+14:54:27 [noms] déjà téléchargé (cache)
+14:54:27 [commerces] déjà téléchargé (cache)
+14:54:27 [sommets] déjà téléchargé (cache)
+14:54:27 [numeros] déjà téléchargé (cache)
+14:54:27 [mobilier2] déjà téléchargé (cache)
+14:54:27 [mobilier3] déjà téléchargé (cache)
+14:54:27 [arbres] déjà téléchargé (cache)
+14:54:27 [relief] tuiles AWS Terrarium…
+14:54:27 [orthophoto] tuiles IGN…
+14:54:27 [cadastre_batiments] déjà téléchargé (cache)
+14:54:27 [bdtopo_routes] déjà téléchargé (cache)
+14:54:27   [cadastre] 88 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+14:54:27 [cadastre/BD TOPO] 66 bâtiment(s) sans contrepartie cadastrale retiré(s), 64 tronçon(s) routier(s) orphelin(s) retiré(s)
+14:54:27 OK : 3822 bâtiments, 113 arbres, 1613 routes/rails/cours d'eau, 370 zones, relief oui
+14:57:27 [batiments] déjà téléchargé (cache)
+14:57:27 [routes] déjà téléchargé (cache)
+14:57:27 [zones] déjà téléchargé (cache)
+14:57:27 [littoral] déjà téléchargé (cache)
+14:57:27 [lieux] déjà téléchargé (cache)
+14:57:27 [noms] déjà téléchargé (cache)
+14:57:27 [commerces] déjà téléchargé (cache)
+14:57:27 [sommets] déjà téléchargé (cache)
+14:57:27 [numeros] déjà téléchargé (cache)
+14:57:27 [mobilier2] déjà téléchargé (cache)
+14:57:27 [mobilier3] déjà téléchargé (cache)
+14:57:27 [arbres] déjà téléchargé (cache)
+14:57:27 [relief] tuiles AWS Terrarium…
+14:57:27 [orthophoto] tuiles IGN…
+14:57:27 [cadastre_batiments] déjà téléchargé (cache)
+14:57:27 [bdtopo_routes] déjà téléchargé (cache)
+14:57:27   [cadastre] 88 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+14:57:27 [cadastre/BD TOPO] 66 bâtiment(s) sans contrepartie cadastrale retiré(s), 64 tronçon(s) routier(s) orphelin(s) retiré(s)
+14:57:27 OK : 3822 bâtiments, 113 arbres, 1613 routes/rails/cours d'eau, 370 zones, relief oui
+15:38:37 [batiments] téléchargement…
+15:38:37   -> https://overpass-api.de/api/interpreter
+15:38:39 [routes] téléchargement…
+15:38:39   -> https://overpass-api.de/api/interpreter
+15:38:47 [zones] téléchargement…
+15:38:47   -> https://overpass-api.de/api/interpreter
+15:38:54      échec : HTTP 504 
+15:39:14   -> https://overpass.private.coffee/api/interpreter
+15:44:54      échec : HTTP 0 Operation timed out after 170000 milliseconds with 0 bytes received
+15:44:54   -> https://overpass.kumi.systems/api/interpreter
+15:46:36      échec : HTTP 504 
+15:46:56   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+15:47:17 [littoral] téléchargement…
+15:47:17   -> https://overpass-api.de/api/interpreter
+15:47:24      échec : HTTP 504 
+15:47:44   -> https://overpass.private.coffee/api/interpreter
+15:53:24      échec : HTTP 0 Operation timed out after 170002 milliseconds with 0 bytes received
+15:53:24   -> https://overpass.kumi.systems/api/interpreter
+15:54:38 [lieux] téléchargement…
+15:54:38   -> https://overpass-api.de/api/interpreter
+15:54:46      échec : HTTP 504 
+15:55:06   -> https://overpass.private.coffee/api/interpreter
+15:56:48      échec : HTTP 504 
+15:57:08   -> https://overpass.kumi.systems/api/interpreter
+16:02:48      échec : HTTP 0 Operation timed out after 170002 milliseconds with 0 bytes received
+16:02:48   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+16:03:04 [noms] téléchargement…
+16:03:04   -> https://overpass-api.de/api/interpreter
+16:03:14 [commerces] téléchargement…
+16:03:14   -> https://overpass-api.de/api/interpreter
+16:03:16 [sommets] téléchargement…
+16:03:16   -> https://overpass-api.de/api/interpreter
+16:03:24      échec : HTTP 504 
+16:03:44   -> https://overpass.private.coffee/api/interpreter
+16:09:24      échec : HTTP 0 Operation timed out after 170001 milliseconds with 0 bytes received
+16:09:24   -> https://overpass.kumi.systems/api/interpreter
+16:11:18      échec : HTTP 504 
+16:11:38   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+16:11:50 [numeros] téléchargement…
+16:11:50   -> https://overpass-api.de/api/interpreter
+16:11:58      échec : HTTP 504 
+16:12:18   -> https://overpass.private.coffee/api/interpreter
+16:17:58      échec : HTTP 0 Operation timed out after 170001 milliseconds with 0 bytes received
+16:17:58   -> https://overpass.kumi.systems/api/interpreter
+16:23:38      échec : HTTP 0 Operation timed out after 170002 milliseconds with 0 bytes received
+16:23:38   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+16:24:13 [mobilier2] téléchargement…
+16:24:13   -> https://overpass-api.de/api/interpreter
+16:24:15 [mobilier3] téléchargement…
+16:24:15   -> https://overpass-api.de/api/interpreter
+16:24:22      échec : HTTP 504 
+16:24:42   -> https://overpass.private.coffee/api/interpreter
+16:26:33      échec : HTTP 504 
+16:26:53   -> https://overpass.kumi.systems/api/interpreter
+16:28:46      échec : HTTP 504 
+16:29:06   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+16:29:07      échec : HTTP 504 
+16:29:27   -> https://overpass-api.de/api/interpreter
+16:29:35      échec : HTTP 504 
+16:29:55   -> https://overpass.private.coffee/api/interpreter
+16:32:13      échec : HTTP 504 
+16:32:33   -> https://overpass.kumi.systems/api/interpreter
+16:38:13      échec : HTTP 0 Operation timed out after 170000 milliseconds with 0 bytes received
+16:38:13   -> https://maps.mail.ru/osm/tools/overpass/api/interpreter
+16:38:14      échec : HTTP 504 
+16:38:34 [mobilier3] ÉCHEC
+16:38:34 [arbres] téléchargement…
+16:38:34   -> https://overpass-api.de/api/interpreter
+16:38:35 [relief] tuiles AWS Terrarium…
+16:38:35 [orthophoto] tuiles IGN…
+16:38:36   orthophoto 16/33867/23428 ok
+16:38:36   orthophoto 16/33867/23429 ok
+16:38:38   orthophoto 16/33867/23430 ok
+16:38:39   orthophoto 16/33867/23431 ok
+16:38:41   orthophoto 16/33867/23432 ok
+16:38:41   orthophoto 16/33867/23433 ok
+16:38:42   orthophoto 16/33867/23434 ok
+16:38:43   orthophoto 16/33867/23435 ok
+16:38:43   orthophoto 16/33867/23436 ok
+16:38:44   orthophoto 16/33867/23437 ok
+16:38:44   orthophoto 16/33867/23438 ok
+16:38:44   orthophoto 16/33867/23439 ok
+16:38:46   orthophoto 16/33867/23440 ok
+16:38:46   orthophoto 16/33867/23441 ok
+16:38:47   orthophoto 16/33867/23442 ok
+16:38:48   orthophoto 16/33867/23443 ok
+16:38:48   orthophoto 16/33867/23444 ok
+16:38:49   orthophoto 16/33867/23445 ok
+16:38:49   orthophoto 16/33867/23446 ok
+16:38:50   orthophoto 16/33867/23447 ok
+16:38:50   orthophoto 16/33867/23448 ok
+16:38:51   orthophoto 16/33868/23428 ok
+16:38:52   orthophoto 16/33868/23429 ok
+16:38:52   orthophoto 16/33868/23430 ok
+16:38:53   orthophoto 16/33868/23431 ok
+16:38:54   orthophoto 16/33868/23432 ok
+16:38:54   orthophoto 16/33868/23433 ok
+16:38:55   orthophoto 16/33868/23434 ok
+16:38:55   orthophoto 16/33868/23435 ok
+16:38:57   orthophoto 16/33868/23436 ok
+16:38:57   orthophoto 16/33868/23437 ok
+16:38:59   orthophoto 16/33868/23438 ok
+16:38:59   orthophoto 16/33868/23439 ok
+16:39:00   orthophoto 16/33868/23440 ok
+16:39:01   orthophoto 16/33868/23441 ok
+16:39:01   orthophoto 16/33868/23442 ok
+16:39:02   orthophoto 16/33868/23443 ok
+16:39:02   orthophoto 16/33868/23444 ok
+16:39:03   orthophoto 16/33868/23445 ok
+16:39:04   orthophoto 16/33868/23446 ok
+16:39:04   orthophoto 16/33868/23447 ok
+16:39:05   orthophoto 16/33868/23448 ok
+16:39:05   orthophoto 16/33869/23428 ok
+16:39:06   orthophoto 16/33869/23429 ok
+16:39:07   orthophoto 16/33869/23446 ok
+16:39:09   orthophoto 16/33869/23447 ok
+16:39:10   orthophoto 16/33869/23448 ok
+16:39:10   orthophoto 16/33870/23428 ok
+16:39:10   orthophoto 16/33870/23429 ok
+16:39:11   orthophoto 16/33870/23446 ok
+16:39:11   orthophoto 16/33870/23447 ok
+16:39:12   orthophoto 16/33870/23448 ok
+16:39:13   orthophoto 16/33871/23428 ok
+16:39:13   orthophoto 16/33871/23429 ok
+16:39:14   orthophoto 16/33871/23446 ok
+16:39:14   orthophoto 16/33871/23447 ok
+16:39:15   orthophoto 16/33871/23448 ok
+16:39:15   orthophoto 16/33872/23428 ok
+16:39:16   orthophoto 16/33872/23429 ok
+16:39:17   orthophoto 16/33872/23446 ok
+16:39:17   orthophoto 16/33872/23447 ok
+16:39:18   orthophoto 16/33872/23448 ok
+16:39:18   orthophoto 16/33873/23428 ok
+16:39:19   orthophoto 16/33873/23429 ok
+16:39:24   orthophoto 16/33873/23446 ok
+16:39:25   orthophoto 16/33873/23447 ok
+16:39:26   orthophoto 16/33873/23448 ok
+16:39:27   orthophoto 16/33874/23428 ok
+16:39:27   orthophoto 16/33874/23429 ok
+16:39:28   orthophoto 16/33874/23446 ok
+16:39:30   orthophoto 16/33874/23447 ok
+16:39:30   orthophoto 16/33874/23448 ok
+16:39:32   orthophoto 16/33875/23428 ok
+16:39:32   orthophoto 16/33875/23429 ok
+16:39:32   orthophoto 16/33875/23446 ok
+16:39:33   orthophoto 16/33875/23447 ok
+16:39:33   orthophoto 16/33875/23448 ok
+16:39:34   orthophoto 16/33876/23428 ok
+16:39:34   orthophoto 16/33876/23429 ok
+16:39:35   orthophoto 16/33876/23446 ok
+16:39:37   orthophoto 16/33876/23447 ok
+16:39:39   orthophoto 16/33876/23448 ok
+16:39:39   orthophoto 16/33877/23428 ok
+16:39:40   orthophoto 16/33877/23429 ok
+16:39:41   orthophoto 16/33877/23446 ok
+16:39:42   orthophoto 16/33877/23447 ok
+16:39:42   orthophoto 16/33877/23448 ok
+16:39:44   orthophoto 16/33878/23428 ok
+16:39:44   orthophoto 16/33878/23429 ok
+16:39:46   orthophoto 16/33878/23446 ok
+16:39:46   orthophoto 16/33878/23447 ok
+16:39:47   orthophoto 16/33878/23448 ok
+16:39:48   orthophoto 16/33879/23428 ok
+16:39:48   orthophoto 16/33879/23429 ok
+16:39:49   orthophoto 16/33879/23446 ok
+16:39:50   orthophoto 16/33879/23447 ok
+16:39:50   orthophoto 16/33879/23448 ok
+16:39:51   orthophoto 16/33880/23428 ok
+16:39:51   orthophoto 16/33880/23429 ok
+16:39:52   orthophoto 16/33880/23446 ok
+16:39:52   orthophoto 16/33880/23447 ok
+16:39:53   orthophoto 16/33880/23448 ok
+16:39:53   orthophoto 16/33881/23428 ok
+16:39:55   orthophoto 16/33881/23429 ok
+16:39:55   orthophoto 16/33881/23446 ok
+16:39:56   orthophoto 16/33881/23447 ok
+16:39:56   orthophoto 16/33881/23448 ok
+16:39:57   orthophoto 16/33882/23428 ok
+16:39:57   orthophoto 16/33882/23429 ok
+16:39:58   orthophoto 16/33882/23446 ok
+16:39:58   orthophoto 16/33882/23447 ok
+16:39:59   orthophoto 16/33882/23448 ok
+16:39:59   orthophoto 16/33883/23428 ok
+16:40:02   orthophoto 16/33883/23429 ok
+16:40:03   orthophoto 16/33883/23446 ok
+16:40:04   orthophoto 16/33883/23447 ok
+16:40:04   orthophoto 16/33883/23448 ok
+16:40:05   orthophoto 16/33884/23428 ok
+16:40:06   orthophoto 16/33884/23429 ok
+16:40:06   orthophoto 16/33884/23446 ok
+16:40:07   orthophoto 16/33884/23447 ok
+16:40:08   orthophoto 16/33884/23448 ok
+16:40:09   orthophoto 16/33885/23428 ok
+16:40:09   orthophoto 16/33885/23429 ok
+16:40:10   orthophoto 16/33885/23430 ok
+16:40:10   orthophoto 16/33885/23431 ok
+16:40:11   orthophoto 16/33885/23432 ok
+16:40:11   orthophoto 16/33885/23433 ok
+16:40:12   orthophoto 16/33885/23434 ok
+16:40:13   orthophoto 16/33885/23435 ok
+16:40:14   orthophoto 16/33885/23436 ok
+16:40:17   orthophoto 16/33885/23437 ok
+16:40:20   orthophoto 16/33885/23438 ok
+16:40:20   orthophoto 16/33885/23439 ok
+16:40:21   orthophoto 16/33885/23440 ok
+16:40:21   orthophoto 16/33885/23441 ok
+16:40:22   orthophoto 16/33885/23442 ok
+16:40:23   orthophoto 16/33885/23443 ok
+16:40:23   orthophoto 16/33885/23444 ok
+16:40:24   orthophoto 16/33885/23445 ok
+16:40:24   orthophoto 16/33885/23446 ok
+16:40:25   orthophoto 16/33885/23447 ok
+16:40:26   orthophoto 16/33885/23448 ok
+16:40:27   orthophoto 16/33886/23428 ok
+16:40:28   orthophoto 16/33886/23429 ok
+16:40:28   orthophoto 16/33886/23430 ok
+16:40:29   orthophoto 16/33886/23431 ok
+16:40:29   orthophoto 16/33886/23432 ok
+16:40:30   orthophoto 16/33886/23433 ok
+16:40:31   orthophoto 16/33886/23434 ok
+16:40:33   orthophoto 16/33886/23435 ok
+16:40:34   orthophoto 16/33886/23436 ok
+16:40:35   orthophoto 16/33886/23437 ok
+16:40:36   orthophoto 16/33886/23438 ok
+16:40:36   orthophoto 16/33886/23439 ok
+16:40:36   orthophoto 16/33886/23440 ok
+16:40:37   orthophoto 16/33886/23441 ok
+16:40:37   orthophoto 16/33886/23442 ok
+16:40:38   orthophoto 16/33886/23443 ok
+16:40:39   orthophoto 16/33886/23444 ok
+16:40:39   orthophoto 16/33886/23445 ok
+16:40:39   orthophoto 16/33886/23446 ok
+16:40:40   orthophoto 16/33886/23447 ok
+16:40:40   orthophoto 16/33886/23448 ok
+16:40:40 [cadastre_batiments] téléchargement…
+16:40:41   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 1 : 1000 entité(s) (total 1000)
+16:40:42   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 2 : 1000 entité(s) (total 2000)
+16:40:43   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 3 : 1000 entité(s) (total 3000)
+16:40:44   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 4 : 1000 entité(s) (total 4000)
+16:40:44   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 5 : 1000 entité(s) (total 5000)
+16:40:45   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 6 : 1000 entité(s) (total 6000)
+16:40:46   [BDPARCELLAIRE-VECTEUR_WLD_BDD_WGS84G:batiment] page 7 : 653 entité(s) (total 6653)
+16:40:46 [bdtopo_routes] téléchargement…
+16:40:46   [BDTOPO_V3:troncon_de_route] page 1 : 1000 entité(s) (total 1000)
+16:40:47   [BDTOPO_V3:troncon_de_route] page 2 : 1000 entité(s) (total 2000)
+16:40:48   [BDTOPO_V3:troncon_de_route] page 3 : 1000 entité(s) (total 3000)
+16:40:49   [BDTOPO_V3:troncon_de_route] page 4 : 699 entité(s) (total 3699)
+16:40:49   [cadastre] 167 bâtiment(s) conservé(s) malgré l'absence de correspondance directe : secteur(s) entier(s) non numérisé(s) au PCI (pas une démolition)
+16:40:50 [cadastre/BD TOPO] 135 bâtiment(s) sans contrepartie cadastrale retiré(s), 83 tronçon(s) routier(s) orphelin(s) retiré(s)
+16:40:50 OK : 5986 bâtiments, 296 arbres, 2731 routes/rails/cours d'eau, 605 zones, relief oui
+16:40:53 [orthophoto z19] 8033 tuiles à télécharger
+16:41:05   z19 : 80 ok, 0 échecs
+16:41:20   z19 : 160 ok, 0 échecs
+16:41:33   z19 : 240 ok, 0 échecs
+16:41:44   z19 : 320 ok, 0 échecs
+16:41:56   z19 : 400 ok, 0 échecs
+16:42:15   z19 : 480 ok, 0 échecs
+16:42:36   z19 : 560 ok, 0 échecs
+16:42:48   z19 : 640 ok, 0 échecs
+16:43:11   z19 : 720 ok, 0 échecs
+16:43:54   z19 : 800 ok, 0 échecs
+16:44:07   z19 : 880 ok, 0 échecs
+16:44:21   z19 : 960 ok, 0 échecs
+16:44:40   z19 : 1040 ok, 0 échecs
+16:45:01   z19 : 1120 ok, 0 échecs
+16:45:13   z19 : 1200 ok, 0 échecs
+16:45:23   z19 : 1280 ok, 0 échecs
+16:45:39   z19 : 1360 ok, 0 échecs
+16:45:56   z19 : 1440 ok, 0 échecs
+16:46:06   z19 : 1520 ok, 0 échecs
+16:46:19   z19 : 1600 ok, 0 échecs
+16:46:29   z19 : 1680 ok, 0 échecs
+16:46:45   z19 : 1760 ok, 0 échecs
+16:47:00   z19 : 1840 ok, 0 échecs
+16:47:15   z19 : 1920 ok, 0 échecs
+16:47:24   z19 : 2000 ok, 0 échecs
+16:47:34   z19 : 2080 ok, 0 échecs
+16:47:45   z19 : 2160 ok, 0 échecs
+16:48:00   z19 : 2240 ok, 0 échecs
+16:48:15   z19 : 2320 ok, 0 échecs
+16:48:32   z19 : 2400 ok, 0 échecs
+16:48:44   z19 : 2480 ok, 0 échecs
+16:48:58   z19 : 2560 ok, 0 échecs
+16:49:14   z19 : 2640 ok, 0 échecs
+16:49:25   z19 : 2720 ok, 0 échecs
+16:49:39   z19 : 2800 ok, 0 échecs
+16:49:53   z19 : 2880 ok, 0 échecs
+16:50:09   z19 : 2960 ok, 0 échecs
+16:50:28   z19 : 3040 ok, 0 échecs
+16:50:39   z19 : 3120 ok, 0 échecs
+16:50:50   z19 : 3200 ok, 0 échecs
+16:51:18   z19 : 3280 ok, 0 échecs
+16:51:31   z19 : 3360 ok, 0 échecs
+16:51:43   z19 : 3440 ok, 0 échecs
+16:52:03   z19 : 3520 ok, 0 échecs
+16:52:14   z19 : 3600 ok, 0 échecs
+16:52:26   z19 : 3680 ok, 0 échecs
+16:52:37   z19 : 3760 ok, 0 échecs
+16:52:47   z19 : 3840 ok, 0 échecs
+16:52:58   z19 : 3920 ok, 0 échecs
+16:53:07   z19 : 4000 ok, 0 échecs
+16:53:16   z19 : 4080 ok, 0 échecs
+16:53:27   z19 : 4160 ok, 0 échecs
+16:53:39   z19 : 4240 ok, 0 échecs
+16:53:50   z19 : 4320 ok, 0 échecs
+16:54:00   z19 : 4400 ok, 0 échecs
+16:54:50   z19 : 4480 ok, 0 échecs
+16:55:02   z19 : 4560 ok, 0 échecs
+16:55:11   z19 : 4640 ok, 0 échecs
+16:55:27   z19 : 4720 ok, 0 échecs
+16:55:40   z19 : 4800 ok, 0 échecs
+16:55:55   z19 : 4880 ok, 0 échecs
+16:56:05   z19 : 4960 ok, 0 échecs
+16:56:23   z19 : 5040 ok, 0 échecs
+16:56:34   z19 : 5120 ok, 0 échecs
+16:56:53   z19 : 5200 ok, 0 échecs
+16:57:07   z19 : 5280 ok, 0 échecs
+16:57:18   z19 : 5360 ok, 0 échecs
+16:57:29   z19 : 5440 ok, 0 échecs
+16:57:45   z19 : 5520 ok, 0 échecs
+16:57:58   z19 : 5600 ok, 0 échecs
+16:58:10   z19 : 5680 ok, 0 échecs
+16:58:33   z19 : 5760 ok, 0 échecs
+16:58:44   z19 : 5840 ok, 0 échecs
+16:58:55   z19 : 5920 ok, 0 échecs
+16:59:05   z19 : 6000 ok, 0 échecs
+16:59:16   z19 : 6080 ok, 0 échecs
+16:59:41   z19 : 6160 ok, 0 échecs
+16:59:58   z19 : 6240 ok, 0 échecs
+17:00:13   z19 : 6320 ok, 0 échecs
+17:00:23   z19 : 6400 ok, 0 échecs
+17:00:33   z19 : 6480 ok, 0 échecs
+17:00:53   z19 : 6560 ok, 0 échecs
+17:01:04   z19 : 6640 ok, 0 échecs
+17:01:13   z19 : 6720 ok, 0 échecs
+17:01:24   z19 : 6800 ok, 0 échecs
+17:01:38   z19 : 6880 ok, 0 échecs
+17:01:47   z19 : 6960 ok, 0 échecs
+17:02:03   z19 : 7040 ok, 0 échecs
+17:02:14   z19 : 7120 ok, 0 échecs
+17:02:29   z19 : 7200 ok, 0 échecs
+17:02:40   z19 : 7280 ok, 0 échecs
+17:02:52   z19 : 7360 ok, 0 échecs
+17:03:08   z19 : 7440 ok, 0 échecs
+17:03:17   z19 : 7520 ok, 0 échecs
+17:03:27   z19 : 7600 ok, 0 échecs
+17:03:39   z19 : 7680 ok, 0 échecs
+17:03:47   z19 : 7760 ok, 0 échecs
+17:03:55   z19 : 7840 ok, 0 échecs
+17:04:07   z19 : 7920 ok, 0 échecs
+17:04:22   z19 : 8000 ok, 0 échecs
+17:04:25 [orthophoto z19] terminé : 8033 ok, 0 échecs

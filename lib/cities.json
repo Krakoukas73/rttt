@@ -1,0 +1,250 @@
+[
+ {
+  "cp": "73000",
+  "name": "Chambéry",
+  "lat": 45.5646,
+  "lon": 5.9178,
+  "bbox": [
+   45.54,
+   5.885,
+   45.61,
+   5.955
+  ],
+  "veh": 1500,
+  "pop": 59964
+ },
+ {
+  "cp": "73800",
+  "name": "Cruet",
+  "find": "Cruet",
+  "half": 4160,
+  "pois": [
+   {
+    "n": "Église de Cruet",
+    "d": "Église Saint-Laurent, au cœur du village.",
+    "x": 79.0,
+    "z": 192.7
+   },
+   {
+    "n": "La Baraterie",
+    "d": "Lieu-dit de Cruet.",
+    "x": 1229.6,
+    "z": -1095.2
+   },
+   {
+    "n": "Le Masdoux",
+    "d": "Lieu-dit de Cruet.",
+    "x": -160.4,
+    "z": -344.2
+   },
+   {
+    "n": "Tour du Chaffard",
+    "d": "Vestiges d'une tour médiévale (XIIIe s.), dominant le hameau de Madoux.",
+    "x": 452.3,
+    "z": -917.5
+   },
+   {
+    "n": "École primaire de Cruet",
+    "d": "École primaire du village.",
+    "x": 191.4,
+    "z": 224.5
+   },
+   {
+    "n": "Col de Marocaz",
+    "d": "Col à 968 m d'altitude, au nord de Cruet.",
+    "x": -1197.7,
+    "z": -2452.5
+   }
+  ],
+  "veh": 700,
+  "pop": 1056
+ },
+ {
+  "cp": "39160",
+  "name": "Saint-Amour (Jura)",
+  "lat": 46.4344,
+  "lon": 5.3458,
+  "half": 3200,
+  "zip": "39160",
+  "pois": [
+   {
+    "n": "Piscine municipale",
+    "d": "Piscine municipale de Saint-Amour.",
+    "x": -354.6,
+    "z": 229.8
+   }
+  ],
+  "veh": 700,
+  "pop": 2349
+ },
+ {
+  "cp": "73800m",
+  "name": "Montmélian",
+  "find": "Montmélian",
+  "half": 3200,
+  "zip": "73800",
+  "pois": [
+   {
+    "n": "Collège Pierre et Marie Curie",
+    "d": "Collège de Montmélian.",
+    "x": -960.3,
+    "z": 159.4
+   },
+   {
+    "n": "Centre nautique Albert Serraz",
+    "d": "Piscine et centre sportif de Montmélian.",
+    "x": -564.7,
+    "z": 364.2
+   },
+   {
+    "n": "Espace Merlin",
+    "d": "Espace culturel et de spectacles de Montmélian.",
+    "x": 113.0,
+    "z": -371.3
+   },
+   {
+    "n": "Place Albert Serraz",
+    "d": "Place de Montmélian.",
+    "x": -371.5,
+    "z": -179.5
+   },
+   {
+    "n": "Les Calloudes",
+    "d": "Quartier de Montmélian.",
+    "x": -114.6,
+    "z": -686.7
+   }
+  ],
+  "veh": 1000,
+  "pop": 4024
+ },
+ {
+  "cp": "73800a",
+  "name": "Arbin",
+  "zip": "73800",
+  "find": "Arbin",
+  "half": 3200,
+  "veh": 700,
+  "pop": 841
+ },
+ {
+  "cp": "75011",
+  "name": "Paris 11e - Canal Saint-Martin",
+  "zip": "75011",
+  "lat": 48.8686,
+  "lon": 2.3667,
+  "half": 2000,
+  "veh": 2000,
+  "pop": 138170,
+  "pois": [
+   {
+    "n": "Le Bataclan",
+    "d": "Salle de concert et de spectacle historique, boulevard Voltaire.",
+    "x": 289.0,
+    "z": 615.1
+   },
+   {
+    "n": "Cirque d'Hiver",
+    "d": "Salle de cirque et de spectacle du XIXe siècle, rue Amelot.",
+    "x": 65.3,
+    "z": 559.7
+   },
+   {
+    "n": "Église Sainte-Marguerite",
+    "d": "Église paroissiale du XVIIe siècle, à l'ancien cimetière historique.",
+    "x": 1075.8,
+    "z": 1729.4
+   },
+   {
+    "n": "Musée Édith Piaf",
+    "d": "Petit musée consacré à la chanteuse, dans un appartement-musée.",
+    "x": 1101.1,
+    "z": 261.2
+   },
+   {
+    "n": "Mairie du 11e arrondissement",
+    "d": "Mairie d'arrondissement, place Léon-Blum.",
+    "x": 919.6,
+    "z": 1092.0
+   },
+   {
+    "n": "Square Maurice-Gardette",
+    "d": "Parc public au cœur du quartier Sainte-Marguerite/Voltaire.",
+    "x": 891.7,
+    "z": 774.8
+   }
+  ]
+ },
+ {
+  "cp": "73370",
+  "name": "Le Bourget-du-Lac",
+  "find": "Le Bourget-du-Lac",
+  "half": 3200,
+  "veh": 1200,
+  "pop": 5216
+ },
+ {
+  "cp": "29242",
+  "name": "Île d'Ouessant",
+  "zip": "29242",
+  "lat": 48.46111,
+  "lon": -5.08333,
+  "half": 6000,
+  "veh": 400,
+  "pop": 838
+ },
+ {
+  "cp": "73530",
+  "name": "Albiez-Montrond",
+  "zip": "73530",
+  "lat": 45.219,
+  "lon": 6.339,
+  "half": 5000,
+  "veh": 400,
+  "pop": 350,
+  "pois": [
+   {
+    "n": "Hotel restaurant la Rua",
+    "d": "Hôtel-restaurant d'Albiez-Montrond, route du Mollard.",
+    "x": 214.6,
+    "z": 142.8
+   }
+  ]
+ },
+ {
+  "cp": "73250",
+  "name": "Saint-Pierre-d'Albigny",
+  "zip": "73250",
+  "half": 8000,
+  "veh": 1100,
+  "pop": 4289
+ },
+ {
+  "cp": "83420",
+  "name": "La Croix-Valmer - Gigaro",
+  "zip": "83420",
+  "lat": 43.1878977,
+  "lon": 6.5965304,
+  "half": 4000,
+  "veh": 1000,
+  "pop": 3855,
+  "pois": [
+   {
+    "n": "Gigaro",
+    "d": "Hameau et plage de Gigaro.",
+    "x": -1030.4,
+    "z": -211.7
+   }
+  ]
+ },
+ {
+  "cp": "11430",
+  "name": "Gruissan",
+  "zip": "11430",
+  "lat": 43.1078,
+  "lon": 3.0889,
+  "half": 4000,
+  "veh": 1200,
+  "pop": 5032
+ }
+]

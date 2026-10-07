@@ -1,0 +1,11 @@
+{
+  "name": "vue-3d-chambery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vue 3D de Chambéry (73000) : bâtiments, arbres, jour/nuit",
+  "scripts": {
+    "vendor": "mkdir -p javascript/vendor && cp node_modules/three/build/three.module.js javascript/vendor/ && cp node_modules/three/examples/jsm/controls/OrbitControls.js javascript/vendor/",
+    "data": "php tools/fetch_osm.php"
+  },
+  "dependencies": { "three": "0.160.0" }
+}
