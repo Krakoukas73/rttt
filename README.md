@@ -58,7 +58,7 @@ Le projet est né autour de **Chambéry (73000)** et fonctionne aujourd'hui sur 
 <p align="center"><img src="docs/images/day-night.jpg" alt="Même vue de jour et de nuit" width="85%"><br><sub>Même vue, 15 h puis 21 h 30 : les fenêtres s'allument une à une, les lampadaires éclairent les rues.</sub></p>
 
 ### 🏛️ Rendu maquette
-Un bouton **« Rendu maquette »** fait basculer la ville dans un style épuré façon **plan-masse d'architecte** : bâtiments aux volumes simples et clairs, terrain sans photo aérienne, noms et repères masqués, lumière de plein jour fixe (le temps est alors figé à 12 h 30), le tout sous un effet de **flou de profondeur « tilt-shift »** qui donne à la ville des airs de maquette posée sur une table. La circulation continue de rouler normalement, et un second clic ramène au rendu normal en restituant l'heure et les réglages précédents.
+Un bouton **« Rendu maquette »** fait basculer la ville dans un style épuré façon **plan-masse d'architecte** : bâtiments, arbres et terrain en volumes blancs façon maquette d'architecte, sans photo aérienne, noms et repères masqués, lumière de plein jour fixe (le temps est alors figé à 12 h 30), le tout sous un effet de **flou de profondeur « tilt-shift »** qui donne à la ville des airs de maquette posée sur une table. Un second clic ramène au rendu normal en restituant l'heure et les réglages précédents.
 
 <p align="center"><img src="docs/images/maquette.jpg" alt="Rendu maquette de Chambéry" width="85%"><br><sub>Chambéry en rendu maquette.</sub></p>
 
